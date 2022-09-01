@@ -8,17 +8,17 @@ module.exports = {
     siteUrl: 'https://www.estilografico.com',
   },
   plugins: [
-  //   {
-  //   resolve: 'gatsby-source-contentful',
-  //   options: {
-  //     "accessToken": process.env.GATSBY_CONTENFUL_ID,
-  //     "spaceId": process.env.GATSBY_CONTENFUL_ID
-  //   }
-  // },
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-force-trailing-slashes',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/assets/images`,
+        name: 'assets',
+      },
+    },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -27,12 +27,6 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-google-analytics',
-    //   options: {
-    //     "trackingId": process.env.GATSBY_GOOGLE_ID
-    //   }
-    // },
     {
       resolve: 'gatsby-plugin-layout',
       options: {
@@ -40,13 +34,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          `roboto`,
+          'roboto',
         ],
-        display: 'swap'
-      }
+        display: 'swap',
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
