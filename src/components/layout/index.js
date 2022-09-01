@@ -5,11 +5,8 @@ import Footer from '../footer'
 
 const Layout = ({
   children,
-  t,
-  i18n,
-  location
+  location,
 }) => {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const onOpenMenu = () => {
@@ -24,7 +21,7 @@ const Layout = ({
           class: isMenuOpen ? 'is-open-menu' : '',
         }}
       />
-   
+
       {children}
       <Footer location={location} />
     </div>

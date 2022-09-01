@@ -28,36 +28,31 @@ exports.onCreatePage = ({
   } = actions
 
   // local variable
-  const availableLocales = ['en']
+  const availableLocales = [0]
 
   return new Promise((resolve) => {
-
     deletePage(page)
 
     const pageRoute = getRouteMatchPath(page.path, routeConfig)
 
-
-    availableLocales.map((lang) => {
-      let localizedPath = `${page.path}` 
-
+    availableLocales.map(() => {
+      let localizedPath = `${page.path}`
 
       if (pageRoute) {
-        localizedPath = `${pageRoute.route}` 
-        page.matchPath = `${pageRoute.matchPath}` 
+        localizedPath = `${pageRoute.route}`
+        page.matchPath = `${pageRoute.matchPath}`
       }
-
 
       return createPage({
 
         ...page,
         path: localizedPath,
- 
+
         context: {
           ...page.context,
-          locale: lang,
+          locale: null,
         },
       })
-
     })
 
     resolve()

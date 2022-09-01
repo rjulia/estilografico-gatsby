@@ -8,18 +8,16 @@ export const getProjects = async () => {
       method: 'post',
       url,
       data: {
-        query:queryProjects
+        query: queryProjects,
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.GATSBY_CONTENFUL_TOKEN}`,
-      }
+      },
     })
     return response.data
-
-
   } catch (error) {
-    console.error("error", error);
+    console.error('error', error)
   }
 }
 
@@ -29,18 +27,16 @@ export const getProject = async (slug) => {
       method: 'post',
       url,
       data: {
-        query: queryProject(`"${slug}"`)
+        query: queryProject(`"${slug}"`),
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.GATSBY_CONTENFUL_TOKEN}`,
-      }
+      },
     })
 
     return response.data
-
-
   } catch (error) {
-    console.error("error", error);
+    console.error('error', error)
   }
 }

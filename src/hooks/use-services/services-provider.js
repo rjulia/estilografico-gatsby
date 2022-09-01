@@ -1,9 +1,9 @@
 import _ from 'lodash'
 import React, { useState, useEffect } from 'react'
 import ServicesContext from './services-context'
-import {getQueryServices, getQueryService} from '../../connect/services/request'
-export default function ServicesProvider({ children }) {
+import { getQueryServices, getQueryService } from '../../connect/services/request'
 
+export default function ServicesProvider({ children }) {
   // internal state
   const [services, setServices] = useState({})
   const [service, setService] = useState({})
@@ -18,12 +18,11 @@ export default function ServicesProvider({ children }) {
     setLoading(true)
     getQueryService(slug).then((response) => {
       setCurrentId(_.get(response, 'data.servicioCollection.items[0].sys.id'))
-      setService(_.get(response, 'data.servicioCollection.items[0]')) 
-      setLoading(false) 
-      
+      setService(_.get(response, 'data.servicioCollection.items[0]'))
+      setLoading(false)
     })
   }
-  
+
   // useEffect(() => {
   //   const getNextserviceId = () => {
   //     const idx = _.findIndex(services, {id: currentId - 1})
@@ -34,16 +33,15 @@ export default function ServicesProvider({ children }) {
   //   getNextserviceId(currentId)
   // }, [currentId, services])
 
-  
   useEffect(() => {
     setLoading(true)
     getQueryServices().then((response) => {
       const items = _.get(response, 'data.servicioCollection.items')
-      setServices(_.orderBy(items, ['orden'],['asc']))
+      setServices(_.orderBy(items, ['orden'], ['asc']))
       setLoading(false)
       setTotalservices(items.length)
     })
-  }, []);
+  }, [])
 
   const state = {
     services,

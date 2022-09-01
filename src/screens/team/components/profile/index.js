@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React, { useState } from 'react'
-import { Link } from "gatsby";
+import { Link } from 'gatsby'
 import './profile.scss'
 import Linkeding from '../../../../assets/images/linkedin.png'
 
@@ -32,8 +32,8 @@ const Profile = ({ profile }) => {
           <p className="profile-name">{_.get(profile, 'nombre')}</p>
           <p className="profile-title">{_.get(profile, 'titulo')}</p>
           {
-            linkLinkedin &&
-            <a className="profile-linkedin" href={linkLinkedin}>
+            linkLinkedin
+            && <a className="profile-linkedin" href={linkLinkedin}>
               <img src={Linkeding} alt="linkedin" />
             </a>
           }

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-@import './mediaqueries';
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@use './mediaqueries' as *;
 
 // fonts
 $title: 'Roboto', sans-serif;
@@ -17,7 +17,7 @@ $auxL: 'Blogger Sans Light', sans-serif;
 $main: #bb0e0a;
 $secondary: #edebe3;
 $tercery: #380e0a;
-$tercery_light: #a49686;
+$terceryLight: #a49686;
 $grey_dark: #413129;
 $orange: #fab079;
 $contact: #722c2a; 

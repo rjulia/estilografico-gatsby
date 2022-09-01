@@ -1,11 +1,12 @@
-@import '../../scss/variables';
+@use '../../scss/variables' as *;
+@use "../../scss/mediaqueries" as *;
 
 .container-fluid-profile {
   width: 100%;
 }
 
 .box-profile {
-  @include container;
+  // @include container;
   background: $black;
   margin: 0 auto;
   display: flex;
@@ -20,7 +21,7 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 50%;
-    background-color: $tercery_light;
+    background-color: $terceryLight;
     padding: 38px;
   }
   .name-profile {
@@ -31,7 +32,7 @@
     align-items: center;
     padding-left: 20px;
     h1 {
-      color: $tercery_light;
+      color: $terceryLight;
       font-size: 41px;
       font-family: $text;
     }
@@ -52,7 +53,7 @@
      line-height: 28px;
      font-family: $text;
      font-weight: 400;
-     list-style-image: url("../../assets/icons/tilde.svg");
+     // list-style-image: url("../../assets/icons/tilde.svg");
    }
  }
   .image-profile {
@@ -112,7 +113,7 @@
       margin-bottom: 20px;
     }
     li {
-      list-style-image: url("../../assets/icons/rombo.svg");
+      // list-style-image: url("../../assets/icons/rombo.svg");
       p {
         margin-bottom: 0;
       }

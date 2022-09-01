@@ -4,8 +4,6 @@ import _ from 'lodash'
 import ServiceTemplate from '../screens/service'
 
 const ServicioPage = (props) => {
-console.log("🚀 ~ file: servicio.js ~ line 7 ~ EventPage ~ props", props)
-  
   const path = '/servicio/'
   return (
     <Router>

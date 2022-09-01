@@ -1,12 +1,11 @@
 import React from 'react'
-import { navigate } from 'gatsby';
+import { navigate } from 'gatsby'
 import ButtonNavigation from '../button-navigation'
-import Squares  from '../../assets/icons/squares.svg';
-import ArrowUp  from '../../assets/icons/arrow-up.svg';
+import Squares from '../../assets/icons/squares.svg'
+import ArrowUp from '../../assets/icons/arrow-up.svg'
 import './navigation.scss'
 
 const NavigationService = () => {
-
   const goToBack = () => {
     navigate(-1)
   }
@@ -23,10 +22,10 @@ const NavigationService = () => {
       <ul className="list-navigation-services">
         <li>
           <ButtonNavigation
-          icon={ArrowUp}
-          title="VOLVER"
-          turn
-          onClick={goToBack}/>
+            icon={ArrowUp}
+            title="VOLVER"
+            turn
+            onClick={goToBack}/>
         </li>
         <li>
           <ButtonNavigation

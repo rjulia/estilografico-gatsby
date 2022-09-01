@@ -1,16 +1,14 @@
 import _ from 'lodash'
 import React, { useMemo, useState, useEffect } from 'react'
-import { Link } from "gatsby"
-import Logo from '../../assets/icons/logoClean.svg';
+import { Link } from 'gatsby'
+import Logo from '../../assets/icons/logoClean.svg'
 import './footer.scss'
 import { getPages } from '../../connect/pages/request'
 
 const Footer = ({ location }) => {
-  
   const [pages, setPages] = useState([])
 
-  const getAllPages = useMemo(() => function () {
-
+  const getAllPages = useMemo(() => () => {
     getPages().then((response) => {
       setPages(_.get(response, 'data.pageCollection.items'))
     })
@@ -24,7 +22,7 @@ const Footer = ({ location }) => {
     <div className="container-fluid-home">
       <div className="container-footer">
         {
-         !_.includes(location.pathname, 'contacto') && (
+          !_.includes(location.pathname, 'contacto') && (
             <div className="container-contact-footer">
               <div className="message-contact-footer">
                 <p>¿Tienes un proyecto en mente?</p>
@@ -33,14 +31,14 @@ const Footer = ({ location }) => {
                 <div><p>CONTACTA CON NOSOTROS</p></div>
               </Link>
             </div>
-         )
+          )
         }
 
         <div className="box-footer">
           <div className="box-logo-footer">
             <div>
               <Link
-                to={`/`}>
+                to={'/'}>
                 <Logo />
               </Link>
             </div>

@@ -1,4 +1,5 @@
-@import '../../scss/variables';
+@use '../../scss/variables' as *;
+@use "../../scss/mediaqueries" as *;
 
 .container-fluid-home{
   display: block;
@@ -68,7 +69,7 @@
     align-items: center;
     & h2 {
       font-size: 24px;
-      color: $tercery_light;
+      color: $terceryLight;
       font-weight: 300;
       font-family: $auxB;
       & span {

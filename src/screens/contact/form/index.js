@@ -1,33 +1,34 @@
 import React from 'react'
-import { Formik, FieldArray } from 'formik';
-import {  Link, navigate } from "gatsby";
-import axios from 'axios';
+import { Formik, FieldArray } from 'formik'
+import { Link, navigate } from 'gatsby'
+import axios from 'axios'
 // import { useRouter } from '../../../hooks/use-router'
 import '../contact.scss'
-const API_PATH = './api/index.php';
+
+const API_PATH = './api/index.php'
 
 const Form = () => {
   // const router = useRouter()
   const servicesCollection = [
-    { value: "web", label: "Página web" },
-    { value: "branding", label: "Branding / Creación de marca" },
-    { value: "catalogo", label: "Catálogo" },
-    { value: "rotulo", label: "Rótulo / Rotulación" },
-    { value: "senaletica", label: "Señalética" },
-    { value: "video", label: "Video" },
-    { value: "packaging", label: "Packaging" },
-    { value: "fotografia", label: "Fotografía" },
-    { value: "expositores", label: "Expositores y Carteles" },
-  ];
+    { value: 'web', label: 'Página web' },
+    { value: 'branding', label: 'Branding / Creación de marca' },
+    { value: 'catalogo', label: 'Catálogo' },
+    { value: 'rotulo', label: 'Rótulo / Rotulación' },
+    { value: 'senaletica', label: 'Señalética' },
+    { value: 'video', label: 'Video' },
+    { value: 'packaging', label: 'Packaging' },
+    { value: 'fotografia', label: 'Fotografía' },
+    { value: 'expositores', label: 'Expositores y Carteles' },
+  ]
 
   // useEffect(() => {
   //   const script = document.createElement('script');
-  
+
   //   script.src = "https://www.google.com/recaptcha/api.js";
   //   script.async = true;
-  
+
   //   document.body.appendChild(script);
-  
+
   //   return () => {
   //     document.body.removeChild(script);
   //   }
@@ -43,47 +44,45 @@ const Form = () => {
         accept: false,
       }}
       validateOnChange={true}
-      validate={values => {
-        const errors = {};
+      validate={(values) => {
+        const errors = {}
         if (!values.name) {
-          errors.name = 'El nombre es requerido';
+          errors.name = 'El nombre es requerido'
         }
         if (!values.telephone) {
-          errors.telephone = 'El teléfono es requerido';
+          errors.telephone = 'El teléfono es requerido'
         }
         if (values.services.length <= 0) {
-          errors.services = 'Tiene al menos que selccionar un campo';
+          errors.services = 'Tiene al menos que selccionar un campo'
         }
         if (!values.accept) {
-          errors.accept = 'Tiene que aceptar las condiciones de aviso legal';
+          errors.accept = 'Tiene que aceptar las condiciones de aviso legal'
         }
-        console.error(errors);
-        return errors;
+        console.error(errors)
+        return errors
       }}
       onSubmit={(values, { setSubmitting }) => {
-        
-          axios({
-            method: 'post',
-            url: `${API_PATH}`,
-            headers: { 
-              'content-type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Methods': 'PUT, GET, POST',
-              'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-            },
-            data: {
-              ...values,
-              services: JSON.stringify(values.services)
-            }
-          }).then(result => {
-            result.status === 200 && navigate('/enviado/')
-          }).catch(error => console.log(error));
-    
-        
+        axios({
+          method: 'post',
+          url: `${API_PATH}`,
+          headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'PUT, GET, POST',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+          },
+          data: {
+            ...values,
+            services: JSON.stringify(values.services),
+          },
+        }).then((result) => {
+          result.status === 200 && navigate('/enviado/')
+        }).catch((error) => console.log(error))
+
         setTimeout(() => {
           // alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+          setSubmitting(false)
+        }, 400)
       }}
     >
       {({
@@ -114,31 +113,29 @@ const Form = () => {
                 <label>¿Qué servicios buscas?*</label>
                 <FieldArray
                   name="services"
-                  render={arrayHelpers => (
+                  render={(arrayHelpers) => (
                     <div>
-                      {servicesCollection.map(service => {
-                       return (
-                       <label key={service.value} className="checkbox-contact">
+                      {servicesCollection.map((service) => (
+                        <label key={service.value} className="checkbox-contact">
                           <p>{service.label}</p>
                           <input
                             name="services"
                             type="checkbox"
                             value={service}
                             checked={values.services.includes(service.value)}
-                            onChange={e => {
+                            onChange={(e) => {
                               if (e.target.checked) {
-                                arrayHelpers.push(service.value);
+                                arrayHelpers.push(service.value)
                               } else {
-                                const idx = values.services.indexOf(service.value);
-                                arrayHelpers.remove(idx);
+                                const idx = values.services.indexOf(service.value)
+                                arrayHelpers.remove(idx)
                               }
                             }}
                           />
                           <span className="checkmark"></span>
-                          
+
                         </label>
-                       )
-                    })}
+                      ))}
                     </div>
                   )}
                 />

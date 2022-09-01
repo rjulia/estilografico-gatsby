@@ -1,11 +1,11 @@
 import _ from 'lodash'
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Spinner } from '../../components'
 import { getProfile } from '../../connect/profile/request'
 
 import TeamDetailView from './team-detail-view'
 
-const TeamDetailController = ({location}) => {
+const TeamDetailController = ({ location }) => {
   const [profile, setProfile] = useState({})
   const slug = _.last(_.compact(_.split(location.pathname, '/')))
   useEffect(() => {
@@ -17,7 +17,7 @@ const TeamDetailController = ({location}) => {
   if (_.isEmpty(profile)) {
     return <Spinner />
   }
-  
+
   return (
     <TeamDetailView profile={profile}/>
   )

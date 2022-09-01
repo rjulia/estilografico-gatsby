@@ -8,6 +8,6 @@ import ServicesContexts from './services-context'
 const useServices = () => {
   const context = useContext(ServicesContexts)
   return context
-};
+}
 
 export default useServices

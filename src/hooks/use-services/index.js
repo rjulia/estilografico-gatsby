@@ -3,5 +3,5 @@ import useServices from './use-services'
 
 export {
   ServicesProvider,
-  useServices
+  useServices,
 }

@@ -1,4 +1,5 @@
-@import '../../scss/variables';
+@use '../../scss/variables' as *;
+@use "../../scss/mediaqueries" as *;
 
 .container-menu-services {
   width: 100vw;

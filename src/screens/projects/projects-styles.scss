@@ -1,4 +1,5 @@
-@import '../../scss/variables';
+@use '../../scss/variables' as *;
+@use "../../scss/mediaqueries" as *;
 
 .container-fluid-project-detail {
   width: 100%;
@@ -34,7 +35,7 @@
       font-size: 26px;
       font-weight: 300;
       font-family: $text;
-      color: $tercery_light;
+      color: $terceryLight;
 
     }
   }
@@ -59,7 +60,7 @@
         position: absolute;
         // top: 5px;
         left: -20px;
-        content: url("../../assets/icons/tilde.svg")
+        // content: url("../../assets/icons/tilde.svg")
       }
     }
   }
@@ -97,7 +98,7 @@
         font-size: 40px;
         font-weight: 300;
         font-family: $text;
-        color: $tercery_light;
+        color: $terceryLight;
       }
     }
 
@@ -199,7 +200,7 @@
 .title-related-project-detail {
   font-size: 36px;
   font-family: $aux;
-  color: $tercery_light;
+  color: $terceryLight;
   margin: 25px 0;
 }
 

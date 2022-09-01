@@ -29,8 +29,7 @@ export const queryProjects = `
 }
 `
 
-export const queryProject = (slug) => {
-  return `{
+export const queryProject = (slug) => `{
     projectoCollection(
       where:{slug:${slug}},
       order:orden_ASC,
@@ -81,4 +80,3 @@ export const queryProject = (slug) => {
       }
     }
   `
-}

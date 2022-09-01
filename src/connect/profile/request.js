@@ -8,18 +8,16 @@ export const getProfile = async (slug) => {
       method: 'post',
       url,
       data: {
-        query: profileBySlug(`"${slug}"`)
+        query: profileBySlug(`"${slug}"`),
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.GATSBY_CONTENFUL_TOKEN}`,
-      }
+      },
     })
 
     return response.data
-
-
   } catch (error) {
-    console.error("error", error);
+    console.error('error', error)
   }
 }

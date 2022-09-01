@@ -1,34 +1,36 @@
-@import '../../scss/variables';
+// @use '../../scss/variables' as *;
 
-.box-title-projects {
-  padding: 0 20px;
-  margin-top: 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  h2 {
-    margin: 0;
-    font-size: 26px;
-    font-weight: 300;
-    color:$tercery_light;
-    font-family: $auxL;
+// .box-title-projects {
+//   padding: 0 20px;
+//   margin-top: 20px;
+//   text-align: center;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100px;
 
-    span {
-      font-weight: 700;
-      text-transform: uppercase;
-      font-family: $auxB;
+//   h2 {
+//     margin: 0;
+//     font-size: 26px;
+//     font-weight: 300;
+//     color: $terceryLight;
+//     font-family: $auxL;
 
-    }
-  }
-  @include desktop {  
-    padding: 0;
-    margin-top: 60px;
-    h2 {
-      margin: 0;
-      font-size: 48px;
-    }
-  
-  }
-}
+//     span {
+//       font-weight: 700;
+//       text-transform: uppercase;
+//       font-family: $auxB;
+
+//     }
+//   }
+
+//   @include desktop {
+//     padding: 0;
+//     margin-top: 60px;
+
+//     h2 {
+//       margin: 0;
+//       font-size: 48px;
+//     }
+//   }
+// }

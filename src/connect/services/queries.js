@@ -1,4 +1,3 @@
-
 export const queryServicies = `
   {
     servicioCollection (
@@ -112,8 +111,7 @@ export const serviceBySlug = (slug) => `{
 }
 `
 
-export const queryService = (id) => {
-  return `
+export const queryService = (id) => `
   {
     servicio(id: ${id}) {
         orden
@@ -176,4 +174,3 @@ export const queryService = (id) => {
       }
     }
   `
-}
