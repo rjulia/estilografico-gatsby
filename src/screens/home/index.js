@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import _ from 'lodash'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'

@@ -1,14 +1,13 @@
 import React from 'react'
 import { Router } from '@reach/router'
-import _ from 'lodash'
-import ProjectsTemplate from '../screens/projects'
+import ProjectsTemplate from '../screens/project-detail'
 
 const ProyectosPage = (props) => {
-  const path = '/projectos/'
+  const path = '/proyectos/'
   return (
     <Router>
       <ProjectsTemplate {...props} path={`${path}:slug`} />
-
+      <ProjectsTemplate {...props} path={`${path}:id`} />
     </Router>
   )
 }

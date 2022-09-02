@@ -10,7 +10,6 @@ import './projects-styles.scss'
 const Projects = ({ location }) => {
   const [project, setProject] = useState({})
   const slug = _.last(_.compact(_.split(location.pathname, '/')))
-  console.log('🚀 ~ file: index.js ~ line 13 ~ Projectos ~ slug', slug)
 
   useEffect(() => {
     getProject(slug).then((response) => {

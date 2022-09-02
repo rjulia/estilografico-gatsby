@@ -12,7 +12,9 @@ module.exports = [
     route: '/proyectos/',
     matchPath: '/proyectos/*',
   },
-
-
+  {
+    route: '/pagina/',
+    matchPath: '/pagina/*',
+  },
 
 ]

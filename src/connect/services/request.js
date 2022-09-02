@@ -34,7 +34,6 @@ export const getQueryService = async (slug) => {
         Authorization: `Bearer ${process.env.GATSBY_CONTENFUL_TOKEN}`,
       },
     })
-    console.error(response)
 
     return response.data
   } catch (error) {

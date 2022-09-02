@@ -8,19 +8,17 @@ export const getPage = async (slug) => {
       method: 'post',
       url,
       data: {
-        query: pageBySlug(`"${slug}"`)
+        query: pageBySlug(`"${slug}"`),
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.GATSBY_CONTENFUL_TOKEN}`,
-      }
+      },
     })
 
     return response.data
-
-
   } catch (error) {
-    console.error("error", error);
+    console.error('error', error)
   }
 }
 
@@ -30,18 +28,16 @@ export const getPages = async () => {
       method: 'post',
       url,
       data: {
-        query: pagesQuery
+        query: pagesQuery,
       },
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.GATSBY_CONTENFUL_TOKEN}`,
-      }
+      },
     })
 
     return response.data
-
-
   } catch (error) {
-    console.error("error", error);
+    console.error('error', error)
   }
 }

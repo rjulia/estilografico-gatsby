@@ -11,6 +11,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-minify',
     'gatsby-plugin-force-trailing-slashes',
     {
       resolve: 'gatsby-source-filesystem',

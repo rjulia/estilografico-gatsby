@@ -4,9 +4,19 @@ import { Link } from 'gatsby'
 import Logo from '../../assets/icons/logoClean.svg'
 import './footer.scss'
 import { getPages } from '../../connect/pages/request'
+import { getSocialMedia } from '../../connect/social-media/request'
+import { getAddress } from '../../connect/address/request'
 
 const Footer = ({ location }) => {
   const [pages, setPages] = useState([])
+  const [socialMediaItems, setSocialMediaItems] = useState([])
+  const [address, setAddress] = useState([])
+
+  const getAllSocialMedia = useMemo(() => () => {
+    getSocialMedia().then((response) => {
+      setSocialMediaItems(_.get(response, 'data.redesSocialesCollection.items'))
+    })
+  }, [])
 
   const getAllPages = useMemo(() => () => {
     getPages().then((response) => {
@@ -14,9 +24,17 @@ const Footer = ({ location }) => {
     })
   }, [])
 
+  const getAllAddress = useMemo(() => () => {
+    getAddress().then((response) => {
+      setAddress(_.head(_.get(response, 'data.addressCollection.items')))
+    })
+  }, [])
+
   useEffect(() => {
+    getAllAddress()
+    getAllSocialMedia()
     getAllPages()
-  }, [getAllPages])
+  }, [])
 
   return (
     <div className="container-fluid-home">
@@ -47,13 +65,17 @@ const Footer = ({ location }) => {
           <div className="box-info-footer">
             <div>
               <h3>CONTACTO:</h3>
-              <p>Bidebarrieta, 27 B</p>
-              <p>20600 Eibar. Gipuzkoa.</p>
-              <span>Tel. 943 82 13 00</span>
+              <p>{_.get(address, 'address')}</p>
+              <p>{_.get(address, 'postalCode')}</p>
+              <span>{_.get(address, 'phone')}</span>
             </div>
             <div>
               <h3>SÍGUENOS:</h3>
-              <a href="https://www.linkedin.com/company/estilografico/">Linkedin</a>
+              {
+                _.map(socialMediaItems, (socialMediaItem) => (
+                  <p key={socialMediaItem.titulo}><a target="_blank" rel="noreferrer" href={socialMediaItem.link}> {socialMediaItem.titulo}</a></p>
+                ))
+              }
             </div>
             <div>
               <h3>INFORMACION:</h3>
