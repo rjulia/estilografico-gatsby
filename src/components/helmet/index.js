@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 
 const HelmetComponent = ({
   title,
@@ -14,12 +13,12 @@ const HelmetComponent = ({
   }
 
   return (
-    <Helmet>
+    <>
       <meta charSet="utf-8" />
       <title>{title}</title>
       <meta name="description" content={description} data-react-helmet="true"/>
       <meta name="keywords" content={keywords} data-react-helmet="true" />
-    </Helmet>
+    </>
   )
 }
 

@@ -12,7 +12,6 @@ import RelatedProjects from './related-projects'
 import Navigation from './navigation'
 import Section from './section-service'
 
-
 export {
   Footer,
   Header,
@@ -26,5 +25,5 @@ export {
   ButtonNavigation,
   RelatedProjects,
   Navigation,
-  Section
+  Section,
 }
