@@ -1,10 +1,11 @@
 {
+  "name": "estilografico-gatsby",
   "buildpacks": [
     {
-      "url": "heroku/nodejs"
+      "url": "https://github.com/heroku/heroku-buildpack-nginx.git"
     },
     {
-      "url": "https://github.com/heroku/heroku-buildpack-static"
+      "url": "heroku/nodejs"
     }
   ]
 }
