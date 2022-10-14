@@ -34,11 +34,9 @@ const Home = () => {
   return (
     <div className="container-fluid-home">
       <Helmet
-        title="EstiloGráfico: Diseño y Publicidad: Logo, Web, Rótulo
-        "
+        title="EstiloGráfico: Diseño y Publicidad: Logo, Web, Rótulo"
         description="Diseño gráfico y Publicidad en Eibar, Gipuzkoa. Diseñamos y promocionamos tu marca, página
-        web, catálogo, rótulo de fachada, fotografía, video
-        "
+        web, catálogo, rótulo de fachada, fotografía, video"
         keywords=""
       />
       <Carousel images={carouselItems}/>
