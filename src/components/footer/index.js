@@ -26,7 +26,8 @@ const Footer = ({ location }) => {
 
   const getAllAddress = useMemo(() => () => {
     getAddress().then((response) => {
-      setAddress(_.head(_.get(response, 'data.addressCollection.items')))
+      console.log('🚀 ~ file: index.js ~ line 29 ~ getAddress ~ response', response)
+      setAddress(_.get(response, 'data.addressCollection.items'))
     })
   }, [])
 
@@ -65,9 +66,17 @@ const Footer = ({ location }) => {
           <div className="box-info-footer">
             <div>
               <h3>CONTACTO:</h3>
-              <p>{_.get(address, 'address')}</p>
-              <p>{_.get(address, 'postalCode')}</p>
-              <span>{_.get(address, 'phone')}</span>
+              <div className="row">
+                {
+                  _.map(address, (item) => (
+                    <div className="col">
+                      <p>{_.get(item, 'address')}</p>
+                      <p>{_.get(item, 'postalCode')}</p>
+                      <span>{_.get(item, 'phone')}</span>
+                    </div>
+                  ))
+                }
+              </div>
             </div>
             <div>
               <h3>SÍGUENOS:</h3>
