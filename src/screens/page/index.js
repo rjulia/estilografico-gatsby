@@ -7,7 +7,7 @@ import './page.scss'
 
 const ServicesDetail = ({ location }) => {
   const [page, setPage] = useState({})
-  const slug = _.last(_.split(location.pathname, '/'))
+  const slug = _.last(_.compact(_.split(location.pathname, '/')))
   useEffect(() => {
     getPage(slug).then((response) => {
       setPage(_.get(response, 'data.pageCollection.items[0]'))

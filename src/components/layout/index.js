@@ -2,6 +2,7 @@ import Helmet from 'react-helmet'
 import React, { useState } from 'react'
 import Header from '../header'
 import Footer from '../footer'
+import MenuOverload from '../menu-overload'
 
 const Layout = ({
   children,
@@ -16,6 +17,7 @@ const Layout = ({
   return (
     <div className="global-wrapper">
       <Header onOpenMenu={onOpenMenu}/>
+      <MenuOverload onOpenMenu={onOpenMenu} isMenuOpen={isMenuOpen}/>
       <Helmet
         bodyAttributes={{
           class: isMenuOpen ? 'is-open-menu' : '',

@@ -15,6 +15,7 @@ export const getPage = async (slug) => {
         Authorization: `Bearer ${process.env.GATSBY_CONTENFUL_TOKEN}`,
       },
     })
+    console.log("🚀 ~ file: request.js ~ line 18 ~ getPage ~ response", response)
 
     return response.data
   } catch (error) {

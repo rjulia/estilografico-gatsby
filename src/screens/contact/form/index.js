@@ -76,7 +76,9 @@ const Form = () => {
             services: JSON.stringify(values.services),
           },
         }).then((result) => {
-          result.status === 200 && navigate('/enviado/')
+          if (result.status === 200) {
+            navigate('/enviado/')
+          }
         }).catch((error) => console.log(error))
 
         setTimeout(() => {
